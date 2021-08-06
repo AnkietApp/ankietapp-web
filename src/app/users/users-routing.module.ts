@@ -1,23 +1,24 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-import { LayoutComponent } from './layout.component';
 import { AccountsComponent } from './accounts.component';
 import { AddEditComponent } from './add-edit.component';
+import { LayoutComponent } from './layout.component';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-    {
-        path: '', component: LayoutComponent,
-        children: [
-            { path: '', component: AccountsComponent },
-            { path: 'add', component: AddEditComponent },
-            { path: 'edit/:id', component: AddEditComponent }
-        ]
-    }
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: '', component: AccountsComponent },
+      { path: 'add', component: AddEditComponent },
+      { path: 'edit/:id', component: AddEditComponent },
+    ],
+  },
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class UsersRoutingModule { }
+export class UsersRoutingModule {}
